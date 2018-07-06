@@ -14,6 +14,7 @@
 	<modules>
 		<module>registry-server</module>
 		<module>user-service</module>
+		<module>energy-service</module>
 	</modules>
 
 	<parent>
