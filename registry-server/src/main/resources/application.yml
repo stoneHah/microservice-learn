@@ -12,6 +12,7 @@ spring:
   application:
     name: registry-server
 
+
 ---
 
 spring:
@@ -24,6 +25,8 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8083/eureka/
+  server:
+    enable-self-preservation: false
 
 ---
 
@@ -37,3 +40,6 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8082/eureka/
+  server:
+      enable-self-preservation: false
+
