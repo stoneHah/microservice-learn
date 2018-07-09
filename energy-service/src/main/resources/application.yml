@@ -4,6 +4,11 @@ spring:
 server:
   port: 8200
 eureka:
+  instance:
+    metadata-map:
+      author: qun.zheng
+      emalil: 717401115@qq.com
+    prefer-ip-address: true
   client:
-    service-url:
+    serviceUrl:
       defaultZone:  http://localhost:8082/eureka/, http://localhost:8083/eureka/

@@ -6,7 +6,7 @@
 #  client:
 #    register-with-eureka: false
 #    fetch-registry: false
-#    service-url:
+#    serviceUrl:
 #      defaultZone: http://localhost:${server.port}/eureka/
 spring:
   application:
@@ -23,7 +23,7 @@ eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
-    service-url:
+    serviceUrl:
       defaultZone: http://localhost:8083/eureka/
   server:
     enable-self-preservation: false
@@ -38,7 +38,7 @@ eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
-    service-url:
+    serviceUrl:
       defaultZone: http://localhost:8082/eureka/
   server:
       enable-self-preservation: false
