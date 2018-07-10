@@ -1,4 +1,4 @@
-package com.zq.learn.energyservice.entity;
+package com.zq.learn.energyservice.api.dto;
 
 import java.util.Date;
 

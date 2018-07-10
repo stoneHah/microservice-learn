@@ -10,3 +10,19 @@ eureka:
     prefer-ip-address: true
 server:
   port: 8100
+ENERGY-SERVICE:
+  ribbon:
+    ConnectTimeout: 500
+    ReadTimeout: 800
+#    MaxAutoRetries: 1   #在首次实例上的重试次数
+#    MaxAutoRetriesNextServer: 2 #重试的实例次数
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000

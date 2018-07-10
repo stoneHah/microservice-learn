@@ -1,4 +1,7 @@
-package com.zq.learn.energyservice.entity;
+package com.zq.learn.energyservice.api.dto;
+
+
+import com.zq.learn.stonecommon.utils.DateUtils;
 
 import java.util.Date;
 
@@ -28,5 +31,14 @@ public class TimeValue<T> {
 
     public void setValue(T value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return new StringBuilder()
+                .append("{")
+                .append("date:").append(DateUtils.formatDate(date, DateUtils.simple)).append(",")
+                .append("value:").append(value)
+                .append("}").toString();
     }
 }

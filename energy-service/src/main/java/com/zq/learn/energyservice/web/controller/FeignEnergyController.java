@@ -1,5 +1,6 @@
 package com.zq.learn.energyservice.web.controller;
 
+import com.zq.learn.energyservice.api.EnergyFeign;
 import com.zq.learn.energyservice.api.dto.PointValue;
 import com.zq.learn.energyservice.api.dto.TimeRegion;
 import com.zq.learn.energyservice.api.dto.TimeValue;
@@ -17,30 +18,30 @@ import java.util.Random;
  * ${DESCRIPTION}
  *
  * @author qun.zheng
- * @create 2018/7/6
+ * @create 2018/7/10
  **/
 @RestController
-@RequestMapping("/energy")
-public class EnergyController {
+@RequestMapping("/energy-feign")
+public class FeignEnergyController implements EnergyFeign {
 
     private static Logger logger = LoggerFactory.getLogger(FeignEnergyController.class);
 
-    @GetMapping("/dayElectric")
+    @Override
     public double getDayElectric() {
         return 1000 * Math.random();
     }
 
-    @GetMapping("/monthElectric")
+    @Override
     public double getMonthElectric(@RequestHeader("month") Date month) {
         int sleepTime = new Random().nextInt(2000);
         logger.info("sleep {} sec",sleepTime);
         SleepUtils.sleepMill(sleepTime);
 
-        return 1000 * Math.random();
+        return 1000 * 30 * Math.random();
     }
 
-    @GetMapping("/dailyPointValues")
-    public List<TimeValue<PointValue>> getPointValues(@RequestParam("day") Date day){
+    @Override
+    public List<TimeValue<PointValue>> getPointValues(@RequestParam("day") Date day) {
         List<TimeValue<PointValue>> result = new ArrayList<>();
         result.add(new TimeValue<>(new Date(), new PointValue(20.2, 1)));
         result.add(new TimeValue<>(new Date(), new PointValue(20.3, 0)));
@@ -48,8 +49,8 @@ public class EnergyController {
         return result;
     }
 
-    @PostMapping("/regionPointValues")
-    public List<TimeValue<PointValue>> getPointValues(@RequestBody TimeRegion timeRegion){
+    @Override
+    public List<TimeValue<PointValue>> getPointValues(@RequestBody TimeRegion timeRegion) {
         List<TimeValue<PointValue>> result = new ArrayList<>();
         result.add(new TimeValue<>(new Date(), new PointValue(20.2, 1)));
         result.add(new TimeValue<>(new Date(), new PointValue(20.3, 0)));

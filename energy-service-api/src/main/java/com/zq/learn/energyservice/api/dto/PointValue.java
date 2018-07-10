@@ -1,4 +1,4 @@
-package com.zq.learn.energyservice.entity;
+package com.zq.learn.energyservice.api.dto;
 
 public class PointValue {
     private Double value;
@@ -26,5 +26,13 @@ public class PointValue {
 
     public void setQuality(int quality) {
         this.quality = quality;
+    }
+
+    @Override
+    public String toString() {
+        return new StringBuilder().append("{")
+                .append("value:").append(value).append(",")
+                .append("quality:").append(quality)
+                .append("}").toString();
     }
 }
