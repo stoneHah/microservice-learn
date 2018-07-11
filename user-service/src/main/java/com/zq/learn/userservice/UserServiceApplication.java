@@ -4,6 +4,7 @@ import com.zq.learn.userservice.common.ExcludeGlobalScan;
 import com.zq.learn.userservice.common.MyBean;
 import com.zq.learn.userservice.service.IFileUploadService;
 import com.zq.learn.userservice.service.impl.FileUploadServiceImpl;
+import feign.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.AutoConfigurationExcludeFilter;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -41,6 +42,11 @@ public class UserServiceApplication {
 	@Bean
 	public IFileUploadService ossFileUploadService(){
 		return new FileUploadServiceImpl();
+	}
+
+	@Bean
+	Logger.Level feignLoggerLevel() {
+		return Logger.Level.FULL;
 	}
 
 	public static void main(String[] args) {
